@@ -3,20 +3,16 @@ class DockingStation
   def release_bike
 
   end 
+
 end 
 
+class Bike 
 
+  def working? 
 
+  end 
 
-
-
-# station1 = DockingStation.new 
-# station2 = DockingStation.new 
-
-
-# docking_station.release_bike
-
-
+end 
 
 
 
