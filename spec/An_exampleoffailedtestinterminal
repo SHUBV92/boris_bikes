@@ -1,0 +1,20 @@
+Delete me once fixed 
+
+
+1) Appointment#pretty_location pretty-prints the location
+     Failure/Error: geocoder.search(location)[0]
+     
+     NoMethodError:
+       undefined method `search' for nil:NilClass
+     # /Users/shubindervirk/.rvm/gems/ruby-2.6.3/gems/really-broken-geocoder-2.0.0/lib/geocoder/query.rb:11:in `execute'
+     # /Users/shubindervirk/.rvm/gems/ruby-2.6.3/gems/really-broken-geocoder-2.0.0/lib/geocoder.rb:22:in `search'
+     # ./lib/appointment.rb:22:in `geo_location'
+     # ./lib/appointment.rb:15:in `pretty_location'
+     # ./spec/appointment_spec.rb:17:in `block (3 levels) in <top (required)>'
+
+Finished in 0.02474 seconds (files took 0.39076 seconds to load)
+6 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/appointment_spec.rb:16 # Appointment#pretty_location pretty-prints the location
