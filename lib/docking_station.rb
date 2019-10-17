@@ -14,8 +14,8 @@ class DockingStation
   end 
   
   def bike_docked(bike)
-     
-      @bike = bike 
+   fail "Capacity reached" if  @bike
+     @bike = bike 
   end 
 end 
 

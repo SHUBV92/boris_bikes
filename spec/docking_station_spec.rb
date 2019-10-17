@@ -25,6 +25,12 @@ describe "#raise error" do
   it 'station does not release bike if no bikes' do
     expect { subject.release_bike }.to raise_error "no bikes available"
   end
+end
+ 
+  describe "#Limit Capacity" do
+  it 'station does not release bike if no bikes' do
+    subject.bike_docked(Bike.new)
+        expect { subject.bike_docked(Bike.new) }.to raise_error "Capacity reached"
+  end
  end
 end
-  
