@@ -4,6 +4,7 @@ require 'bike'
 describe DockingStation do 
 
   dockingstation = DockingStation.new
+  bike = Bike.new
 
   it { is_expected.to respond_to :release_bike }
 
@@ -11,19 +12,20 @@ describe DockingStation do
 describe "#Release Bike" do
   it('releases working bikes') do 
     bike = Bike.new
-    dockingstation.bike_docked(bike)
-    expect(dockingstation.release_bike).to be_working
+    dockingstation.bike_docked(bike)    
+    dockingstation.release_bike(bike)
+    expect(dockingstation.bike[0].working?).to_be true
   end 
 end 
-
 
 
 describe "#bike_docked" do 
   it 'Bike has been docked' do
     
-    bike = Bike.new
+
+    p (dockingstation.bike.length)
     dockingstation.bike_docked(bike)
-    expect(dockingstation.bike.length).to eq 1
+    expect(dockingstation.bike.length).to eq 2
   end 
 
 
