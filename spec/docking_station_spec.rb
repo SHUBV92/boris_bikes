@@ -3,34 +3,47 @@ require 'bike'
 
 describe DockingStation do 
 
+  dockingstation = DockingStation.new
+
   it { is_expected.to respond_to :release_bike }
+
 
 describe "#Release Bike" do
   it('releases working bikes') do 
     bike = Bike.new
-    subject.bike_docked(bike)
-    expect(subject.release_bike).to be_working
+    dockingstation.bike_docked(bike)
+    expect(dockingstation.release_bike).to be_working
   end 
 end 
 
-describe "#Docks a bike" do 
-  it 'docks a bike' do 
+
+
+describe "#bike_docked" do 
+  it 'Bike has been docked' do
+    
     bike = Bike.new
-    #subject.bike_docked(bike)
-    expect(subject.bike_docked(bike)).to eq bike
+    dockingstation.bike_docked(bike)
+    expect(dockingstation.bike.length).to eq 1
   end 
-end 
 
-describe "#raise error" do
+
+# describe "#bike_docked" do 
+# it 'raises an error when full' do 
+#   20.times{subject.bike_docked(Bike.new) }
+#   expect { subject.bike_docked(Bike.new) }.to raise_error "DockingStation"
+# end 
+
+
+
   it 'station does not release bike if no bikes' do
-    expect { subject.release_bike }.to raise_error "no bikes available"
+    expect { dockingstation.release_bike }.to raise_error "no bikes available"
   end
-end
+
  
-  describe "#Limit Capacity" do
+  
   it 'station does not release bike if no bikes' do
-    subject.bike_docked(Bike.new)
-        expect { subject.bike_docked(Bike.new) }.to raise_error "Capacity reached"
+    dockingstation.bike_docked(Bike.new)
+        expect { dockingstation.bike_docked(Bike.new) }.to raise_error "Capacity reached"
   end
- end
+ end   
 end
